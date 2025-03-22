@@ -45,7 +45,7 @@ function Stories() {
     
 
   const handleContribution = (story) =>{
-    if(story.contributions.length === 3){
+    if(story.contributions.length === 10){
       setErrorMessage((prev)=>({
         ...prev,
          [story.id]:
