@@ -33,6 +33,7 @@ function Navbar() {
           bottom="0" 
           left="0"
           right="0"
+          bg={"whiteAlpha.950"}
           justify="space-around" 
           boxShadow="0 -2px 10px rgba(0, 0, 0, 0.1)" 
           p={5} 

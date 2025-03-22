@@ -49,6 +49,11 @@ function Contribute() {
        return;
      } 
 
+     if (!contribution.trim()) {
+      setErrorMessage("Please add contribution sentence before submit!")
+      return
+     } 
+     
      dispatch(editStory(id,currentStory,contribution,author))
      setContribution("");
      setSuccessMessage("Contribution Added Successfully!");
@@ -139,4 +144,4 @@ function Contribute() {
   )
 }
 
-export default Contribute
+export default Contribute;

@@ -97,13 +97,13 @@ function Stories() {
       <Flex wrap="wrap" justify="center" gap={4}>
   {stories.map((story) => (
     <Box key={story.id} width={isSmallScreen ? "100%" : "320px"}>
-      <Card.Root width="100%" minHeight="270px" maxHeight={"320px"} height={"300px"} boxShadow="2xl" borderRadius="3xl">
+      <Card.Root width="100%"  minHeight={"300px"} height={"320px"} boxShadow="2xl" borderRadius="3xl">
       <Card.Body gap="0">
                     <Avatar.Root size="lg" shape="rounded">
                       <Avatar.Image src={source} />
                       <Avatar.Fallback name="Story Avatar" />
                     </Avatar.Root>
-                    <Card.Title mb="2">{story.title}</Card.Title>
+                    <Card.Title mb="2" color={"red.600"} textStyle={"xl"}>{story.title}</Card.Title>
                     <Text textStyle={"sm"} fontWeight={"medium"}>Created by: {story.createdBy}</Text>
                     <Text fontSize="sm" color="gray.500" mb={3}>{new Date(story.createdAt).toLocaleString()}</Text>
                     <Card.Description>

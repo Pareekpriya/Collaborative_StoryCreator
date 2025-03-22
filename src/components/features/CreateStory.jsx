@@ -45,8 +45,8 @@ function CreateStory() {
 
       const wordCount = description.trim().split(/\s+/).length;
 
-      if(wordCount>18){
-        setErrorMessage("Description cannot exceed 18 words.");
+      if(wordCount>30){
+        setErrorMessage("Description cannot exceed 30 words.");
         return;
       }
 

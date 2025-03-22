@@ -50,12 +50,12 @@ function FinishedStory() {
           ): error? (
                 <Text color={"red.500"}>Error: {error}</Text>
           ): (
-            stories.filter(story=> story.contributions?.length === 3).length > 0?(
+            stories.filter(story=> story.contributions?.length === 10).length > 0?(
 
-                stories.filter(story => story.contributions?.length === 3)
+                stories.filter(story => story.contributions?.length === 10)
                 .map((story,index)=>(
                     <Box key={index}  boxShadow={"lg"} borderRadius={"2xl"} w={"full"} p={5} my={5} textAlign={"center"} maxW={"700px"} justifySelf={"center"}  mx="auto" >
-                    <Heading>{story.title}</Heading>
+                    <Heading color={"red.600"} textStyle={"xl"} >{story.title}</Heading>
                     <Text color={"gray.700"} mb={3}>Created by: {story.createdBy}</Text>
                     <Text >{story.description}</Text>
                     <Button mt={3} borderRadius={"2xl"} onClick={()=>navigate(`/story/${story.id}`)}>Read Story</Button>
