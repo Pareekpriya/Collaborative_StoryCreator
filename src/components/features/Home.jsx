@@ -6,17 +6,17 @@ import { useNavigate } from 'react-router-dom';
 function Home() {
   const navigate = useNavigate();
 
-  const homeHeight = useBreakpointValue({base:10,md:30})
+  const footerPadding = useBreakpointValue({ base: '80px', md: '20px' });
 
   return (
     <Flex
     direction="column"
-    minH="80vh"
+    minH="100vh"
     justify={"center"}
     align={"center"}
-    h={homeHeight}
-    // overflowY="auto"
-    // pb={10}
+    // h={"auto"}
+    overflowY="auto"
+    pb={footerPadding}
   >
     <Flex
       flex="1"
@@ -26,6 +26,7 @@ function Home() {
       m={6}
       justify="center"
       align="center"
+
     >
       <Flex
         direction="column"
@@ -51,7 +52,7 @@ function Home() {
       </Box>
     </Flex>
   
-    <Box as="footer" textAlign="center" width="100%"> 
+    <Box as="footer" textAlign="center" width="100%" > 
       <Text textStyle="md" fontWeight="medium">
         &copy; StoryWeave, 2025. All rights reserved.
       </Text>

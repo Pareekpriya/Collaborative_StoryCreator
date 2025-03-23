@@ -94,7 +94,7 @@ function Navbar() {
         </Flex>
           )}
          
-        <ColorModeButton />
+        {/* <ColorModeButton /> */}
         </Flex>
     
    )

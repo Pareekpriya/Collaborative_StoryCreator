@@ -1,5 +1,5 @@
 import { signupWithGoogle } from '@/redux/actions/authAction'
-import { Button, Flex, HStack, Card, Field, Input, Stack, Text } from '@chakra-ui/react'
+import { Button, Flex, HStack, Card, Field, Input, Stack, Text, useBreakpointValue } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -22,27 +22,26 @@ function Signup() {
   
    }
 
+  const cardMarginX = useBreakpointValue({ base: '0.5', md: '0' });
+  const paddingButton = useBreakpointValue({base:'3', md:'4'})
+
    return (
     <Flex
-        direction="column"
-        alignItems="center"
-        justifyContent="center"
-        minH="80vh" 
-        px={6} 
-      >
-     {/* <VStack p={5}>
-       <Button onClick={handleGoogleSignup}>Signup with Google</Button>
-       <Button onClick={()=>navigate("/signupWithEmail")}>Signup with Email & Password</Button>
-    </VStack> */}
-
-          
-        <Card.Root maxW="sm" justifySelf={"center"} mt={55}>
+    direction="column"
+    alignItems="center"
+    justifyContent="center"
+    minH="80vh"
+    px={cardMarginX}
+    minW={"100%"}
+  >
+            
+        <Card.Root borderRadius={"3xl"} maxW="sm"  boxShadow={"2xl"} justifySelf={"center"} alignSelf={"center"} w={"100%"}>
         <Card.Header>
-          <Card.Title textAlign={"center"}>Signup to StoryWeave</Card.Title>
+          <Card.Title mb={"10px"} textAlign={"center"}>Signup to StoryWeave</Card.Title>
         
-          <HStack>
-          <Button>Continue with Email</Button>
-          <Button onClick={handleGoogleSignup}>Continue with Google</Button>
+          <HStack gap={1} minW={"100%"} justifyContent={"center"}>
+          <Button p={paddingButton} variant={"outline"} borderRadius={"full"}>Continue with Email</Button>
+          <Button p={paddingButton} variant={"outline"} borderRadius={"full"} onClick={handleGoogleSignup}>Continue with Google</Button>
           </HStack>
           </Card.Header>
         <Card.Body>
@@ -57,10 +56,10 @@ function Signup() {
             </Field.Root>
           </Stack>
         </Card.Body>
-        <Card.Footer>
-          <HStack>
-          <Button onClick={handleEmail}>Signup</Button>
-          <Button onClick={()=>navigate("/")}>Cancel</Button>
+        <Card.Footer justifyContent={"space-around"}>
+          <HStack gap={1} minW={"100%"} justifyContent={"center"} >
+          <Button w={"3xs"} bg={"red"} borderRadius={"full"} onClick={handleEmail}>Signup</Button>
+          <Button borderRadius={"full"} variant={"outline"} onClick={()=>navigate("/")}>Cancel</Button>
          </HStack>
         </Card.Footer>
       </Card.Root>

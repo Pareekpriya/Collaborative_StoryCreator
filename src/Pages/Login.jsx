@@ -1,6 +1,6 @@
 import { signupWithGoogle } from '@/redux/actions/authAction'
 import { loginWithEmail } from '@/redux/actions/authAction';
-import { Button, HStack, Card, Field, Input, Stack, Text, Flex } from '@chakra-ui/react'
+import { Button, HStack, Card, Field, Input, Stack, Text, Flex, useBreakpointValue } from '@chakra-ui/react'
 import React ,{ useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -19,7 +19,10 @@ function Login() {
     
      }
     
-
+     const cardMarginX = useBreakpointValue({ base: '0.5', md: '0' });
+     const paddingButton = useBreakpointValue({base:'2', md:'4'})
+     const buttonGap = useBreakpointValue({base:2, md:4})
+     
     const handleGoogleLogin = () =>{
         dispatch(signupWithGoogle(navigate))
     }
@@ -28,17 +31,19 @@ function Login() {
     direction="column"
     alignItems="center"
     justifyContent="center"
-    minH="80vh" 
-    px={6} 
+    minH="80vh"
+    px={cardMarginX}
+    minW={"100%"}
   >
     
-    <Card.Root maxW="sm" boxShadow={"2xl"} justifySelf={"center"} mt={55}>
+    <Card.Root borderRadius={"3xl"} maxW="sm" boxShadow={"2xl"} justifySelf={"center"} alignSelf={"center"} mx={cardMarginX} w={"100%"}
+    >
     <Card.Header>
-      <Card.Title textAlign={"center"}>Login to StoryWeave</Card.Title>
+      <Card.Title mb={"10px"}  textAlign={"center"}>Login to StoryWeave</Card.Title>
     
-      <HStack>
-      <Button>Continue with Email</Button>
-      <Button onClick={handleGoogleLogin}>Continue with Google</Button>
+      <HStack gap={buttonGap} minW={"100%"} justifyContent={"center"}>
+      <Button p={paddingButton} borderRadius={"full"} variant={"outline"}>Continue with Email</Button>
+      <Button p={paddingButton} borderRadius={"full"} variant={"outline"} onClick={handleGoogleLogin}>Continue with Google</Button>
       </HStack>
       </Card.Header>
     <Card.Body>
@@ -52,13 +57,14 @@ function Login() {
              <Input type='password' value={password} placeholder='Enter Password' onChange={(e)=>setPassword(e.target.value)}/>
         </Field.Root>
         {error && <Text color="red.500" textAlign={"center"}>Invalid email or password, try again!</Text>}
+        <Button variant="solid" borderRadius={"full"} bg={"red"} onClick={handleEmail}>Login</Button>
+
       </Stack>
     </Card.Body>
-    <Card.Footer justifyContent="space-between">
-      <Button variant="solid" mt={8} onClick={handleEmail}>Login</Button>
-      <Stack justifyContent={"flex-end"}>
+    <Card.Footer justifyContent="center">
+      <Stack flexDirection={"row"} justifyContent={"center"}>
       <Text>Don't have account? </Text>
-      <Button onClick={()=>navigate("/signup")}>Signup here</Button>
+      <Button color={"blue.600"} borderRadius={"full"} variant={"subtle"} onClick={()=>navigate("/signup")}>Signup here</Button>
      </Stack>
     </Card.Footer>
   </Card.Root>

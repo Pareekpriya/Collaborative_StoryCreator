@@ -67,8 +67,9 @@ function Contribute() {
     window.scrollTo(0, 0);
   }, []);
   
-  const isSmallScreen = useBreakpointValue({base:true,md:false});
+  // const isSmallScreen = useBreakpointValue({base:true,md:false});
    
+  const bottomMargin = useBreakpointValue({base:'10' ,md:'0'})
    if (!currentStory) {
       return <Text>Loading story details...</Text>;
     }
@@ -89,11 +90,11 @@ function Contribute() {
             {"<"}
          </Button> 
 
-       <VStack p={8} w={"full"} maxW={"800px"} mx={"auto"} gap={6} 
+       <VStack overflowY="auto" p={8} w={"full"} maxW={"800px"} mx={"auto"} gap={6} 
               >
           
            <Box boxShadow={"2xl"} borderRadius={"3xl"} w={"full"} justifyItems={"center"} alignContent={"center"} p={5}>
-                      <Heading size="xl" color="red.600" mb={2}>{currentStory?.title}</Heading>
+                      <Heading size="xl" textAlign={"center"} color="red.600" mb={2}>{currentStory?.title}</Heading>
                       <Text fontSize="md" color="gray.500">Created by: <Text as="span" fontWeight="bold">{currentStory?.createdBy}</Text>
                       </Text>
                       <Text fontSize="md" mt={4}>Latest Contribution:{' '}
@@ -109,7 +110,7 @@ function Contribute() {
            borderRadius={"xl"}
           /> 
           {errorMessage && <Text color={"red.500"}>{errorMessage}</Text>}
-          <Stack h="70vh" overflowY="auto" align={"center"}>
+          <Stack align={"center"}>
           <Button onClick={handleSubmitContribution} borderRadius={"2xl"} w={"200px"}>Submit Contribution</Button>
 
           <Button  w={"200px"} borderRadius={"2xl"} onClick={()=>setShowContribution(!showContribution)}>{showContribution? "Hide Contributions" : "Show All Contributions"}</Button>
@@ -119,12 +120,12 @@ function Contribute() {
             <VStack 
             w="full"
             gap={4}
-            maxH="80vh" 
-            p={4}              
+            p={4}  
+            mb={bottomMargin}            
              >
 
             {currentStory.contributions.map((contribution,index)=>(
-               <Box key={index} boxShadow={"xl"} borderRadius={"2xl"} w={"full"} p={5}>
+               <Box key={index} boxShadow={"xl"} borderRadius={"2xl"} w={"full"} p={5} >
                    <Text fontSize="md" mb={2}>{contribution.sentence}</Text>
                    <Text fontWeight="bold">By {contribution.contributedBy}</Text>
                </Box>

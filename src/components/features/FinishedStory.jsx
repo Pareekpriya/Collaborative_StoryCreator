@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button, Heading, HStack, Text, Spinner, VStack, useBreakpointValue, Flex } from '@chakra-ui/react';
+import { Box, Button, Heading, HStack, Stack ,Text, Spinner, VStack, useBreakpointValue, Flex } from '@chakra-ui/react';
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 
@@ -18,9 +18,10 @@ function FinishedStory() {
    
   return (
        <>
-        <Box  height='80vh'
-              overflow={"auto"}
-              px={isSmallScreen ? 4 : 0} 
+        <Flex minH='100vh'
+              px={isSmallScreen ? 4 : 0}
+              flexDirection={"column"}
+              pb={'20'}
          > 
          <Text textStyle={"lg"} fontWeight={"medium"}>Hello, {author}</Text>
          {isSmallScreen ? (
@@ -48,25 +49,25 @@ function FinishedStory() {
               <Spinner size="lg" />
             </Box>
           ): error? (
-                <Text color={"red.500"}>Error: {error}</Text>
+                <Text color={"red.500"} textAlign="center">Error: {error}</Text>
           ): (
-            stories.filter(story=> story.contributions?.length === 10).length > 0?(
-
-                stories.filter(story => story.contributions?.length === 10)
+            stories.filter((story)=> story.contributions?.length === 10).length > 0?(
+              <VStack gap={4}>
+                {stories.filter(story => story.contributions?.length === 10)
                 .map((story,index)=>(
-                    <Box key={index}  boxShadow={"lg"} borderRadius={"2xl"} w={"full"} p={5} my={5} textAlign={"center"} maxW={"700px"} justifySelf={"center"}  mx="auto" >
+                    <Box key={index} boxShadow={"lg"} borderRadius={"2xl"} w={"full"} p={5} textAlign={"center"} maxW={"700px"}  mx="auto" >
                     <Heading color={"red.600"} textStyle={"xl"} >{story.title}</Heading>
                     <Text color={"gray.700"} mb={3}>Created by: {story.createdBy}</Text>
                     <Text >{story.description}</Text>
-                    <Button mt={3} borderRadius={"2xl"} onClick={()=>navigate(`/story/${story.id}`)}>Read Story</Button>
+                    <Button bg={"red.700"} mt={3} borderRadius={"2xl"} onClick={()=>navigate(`/story/${story.id}`)}>Read Story</Button>
                   </Box>
-                ))
-
+                ))}
+              </VStack>
             ):(
                 <Text textAlign={"center"}>No finished stories available yet.</Text>
             )
           )}
-          </Box>
+          </Flex>
        </>
   )
 }
