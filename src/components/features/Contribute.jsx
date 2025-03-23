@@ -111,9 +111,9 @@ function Contribute() {
           /> 
           {errorMessage && <Text color={"red.500"}>{errorMessage}</Text>}
           <Stack align={"center"}>
-          <Button onClick={handleSubmitContribution} borderRadius={"2xl"} w={"200px"}>Submit Contribution</Button>
+          <Button bg={"red.700"} onClick={handleSubmitContribution} borderRadius={"2xl"} w={"200px"}>Submit Contribution</Button>
 
-          <Button  w={"200px"} borderRadius={"2xl"} onClick={()=>setShowContribution(!showContribution)}>{showContribution? "Hide Contributions" : "Show All Contributions"}</Button>
+          <Button bg={"blue.800"}  w={"200px"} borderRadius={"2xl"} onClick={()=>setShowContribution(!showContribution)}>{showContribution? "Hide Contributions" : "Show All Contributions"}</Button>
 
           {showContribution && currentStory.contributions?.length > 0 && 
            ( 

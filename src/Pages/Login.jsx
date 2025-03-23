@@ -57,7 +57,7 @@ function Login() {
              <Input type='password' value={password} placeholder='Enter Password' onChange={(e)=>setPassword(e.target.value)}/>
         </Field.Root>
         {error && <Text color="red.500" textAlign={"center"}>Invalid email or password, try again!</Text>}
-        <Button variant="solid" borderRadius={"full"} bg={"red"} onClick={handleEmail}>Login</Button>
+        <Button variant="solid" borderRadius={"full"} bg={"red.600"} onClick={handleEmail}>Login</Button>
 
       </Stack>
     </Card.Body>

@@ -58,7 +58,7 @@ function Signup() {
         </Card.Body>
         <Card.Footer justifyContent={"space-around"}>
           <HStack gap={1} minW={"100%"} justifyContent={"center"} >
-          <Button w={"3xs"} bg={"red"} borderRadius={"full"} onClick={handleEmail}>Signup</Button>
+          <Button w={"3xs"} bg={"red.600"} borderRadius={"full"} onClick={handleEmail}>Signup</Button>
           <Button borderRadius={"full"} variant={"outline"} onClick={()=>navigate("/")}>Cancel</Button>
          </HStack>
         </Card.Footer>

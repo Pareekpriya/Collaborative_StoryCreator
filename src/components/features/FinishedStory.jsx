@@ -26,17 +26,17 @@ function FinishedStory() {
          <Text textStyle={"lg"} fontWeight={"medium"}>Hello, {author}</Text>
          {isSmallScreen ? (
                     <VStack justify={'center'} gap={5} my={5}>
-                    <Button onClick={() => navigate('/stories')} width="100%" borderRadius={"2xl"}>
+                    <Button bg={"blue.800"} onClick={() => navigate('/stories')} width="100%" borderRadius={"2xl"}>
                       Ongoing Stories
                     </Button>
-                    <Button onClick={() => navigate('/finishedStories')} width="100%"  borderRadius={"2xl"}>
+                    <Button bg={"red.700"} onClick={() => navigate('/finishedStories')} width="100%"  borderRadius={"2xl"}>
                       Finished Stories
                     </Button>
                   </VStack>
                   ): (
                     <HStack justify={"center"} gap={5} my={5}>
-                    <Button onClick={()=>navigate("/stories")}  borderRadius={"2xl"} >Ongoing Stories</Button>
-                    <Button onClick={()=>navigate("/finishedStories")}  borderRadius={"2xl"}>Finished Stories</Button>
+                    <Button bg={"blue.800"} onClick={()=>navigate("/stories")}  borderRadius={"2xl"} >Ongoing Stories</Button>
+                    <Button bg={"red.700"} onClick={()=>navigate("/finishedStories")}  borderRadius={"2xl"}>Finished Stories</Button>
                     </HStack>  
                   )}
 
@@ -59,7 +59,7 @@ function FinishedStory() {
                     <Heading color={"red.600"} textStyle={"xl"} >{story.title}</Heading>
                     <Text color={"gray.700"} mb={3}>Created by: {story.createdBy}</Text>
                     <Text >{story.description}</Text>
-                    <Button bg={"red.700"} mt={3} borderRadius={"2xl"} onClick={()=>navigate(`/story/${story.id}`)}>Read Story</Button>
+                    <Button bg={"blue.800"} mt={3} borderRadius={"2xl"} onClick={()=>navigate(`/story/${story.id}`)}>Read Story</Button>
                   </Box>
                 ))}
               </VStack>

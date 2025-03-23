@@ -69,17 +69,17 @@ function Stories() {
         
           {isSmallScreen ? (
             <VStack justify={'center'} gap={5} my={5}>
-            <Button onClick={() => navigate('/stories')} width="100%" borderRadius={"2xl"}>
+            <Button bg={"blue.800"} onClick={() => navigate('/stories')} width="100%" borderRadius={"2xl"}>
               Ongoing Stories
             </Button>
-            <Button onClick={() => navigate('/finishedStories')} width="100%"  borderRadius={"2xl"}>
+            <Button bg={"red.700"} onClick={() => navigate('/finishedStories')} width="100%"  borderRadius={"2xl"}>
               Finished Stories
             </Button>
           </VStack>
           ): (
             <HStack justify={"center"} gap={5} my={5}>
-            <Button onClick={()=>navigate("/stories")}  borderRadius={"2xl"} >Ongoing Stories</Button>
-            <Button onClick={()=>navigate("/finishedStories")}  borderRadius={"2xl"}>Finished Stories</Button>
+            <Button bg={"blue.800"} onClick={()=>navigate("/stories")}  borderRadius={"2xl"} >Ongoing Stories</Button>
+            <Button bg={"red.700"} onClick={()=>navigate("/finishedStories")}  borderRadius={"2xl"}>Finished Stories</Button>
             </HStack>  
           )}
           
@@ -112,8 +112,8 @@ function Stories() {
                     {errorMessage[story.id] && <Text color={"red.600"} mt={2}>{errorMessage[story.id]}</Text>}
                   </Card.Body>
                   <Card.Footer justifyContent="flex-start" >
-                    <Button onClick={()=>navigate(`/story/${story.id}`)} borderRadius={"xl"}>Read</Button>
-                    <Button onClick={()=>handleContribution(story)} borderRadius={"xl"}>Contribute</Button>
+                    <Button bg={"red.700"} onClick={()=>navigate(`/story/${story.id}`)} borderRadius={"xl"}>Read</Button>
+                    <Button bg={"blue.800"} onClick={()=>handleContribution(story)} borderRadius={"xl"}>Contribute</Button>
                   </Card.Footer>
       </Card.Root>
     </Box>

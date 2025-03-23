@@ -38,6 +38,7 @@ function Home() {
           Create your <Box as="span" color="yellow.400">story</Box>
         </Text>
         <Button
+          bg={"blue.800"}
           fontWeight="bold"
           textStyle="md"
           w={{ base: '80%', md: '60%' }}

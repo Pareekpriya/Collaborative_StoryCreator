@@ -80,7 +80,7 @@ function CreateStory() {
        >
      <Card.Root maxW="sm" bg={"white"} border={"none"} boxShadow={"2xl"} color={"black"} justifySelf={"center"} mt={10}>
      <Card.Header>
-       <Card.Title color={"red.700"} textStyle={'2xl'} fontWeight={"semibold"}>Create a New Story</Card.Title>
+       <Card.Title textAlign={"center"} color={"red.700"} textStyle={'2xl'} fontWeight={"semibold"}>Create a New Story</Card.Title>
        <Card.Description>
         Share your creativity with a title and a one-sentence story!</Card.Description>
      </Card.Header>
@@ -96,7 +96,7 @@ function CreateStory() {
        </Stack>
      </Card.Body>
      <Card.Footer justifyContent="center">
-       <Button variant="solid" colorPalette={"red"}  w={"100%"} boxShadow={"md"} p={3} borderRadius={8} textStyle={"lg"} fontWeight={"semibold"} onClick={handleSubmitStory}>Submit Story</Button>
+       <Button variant="solid" bg={"red.700"}  w={"100%"} boxShadow={"md"} p={3} borderRadius={8} textStyle={"lg"} fontWeight={"semibold"} onClick={handleSubmitStory}>Submit Story</Button>
      </Card.Footer>
    </Card.Root>
    </Flex> 
