@@ -93,12 +93,11 @@ function Stories() {
   ):
    
     stories.length>0 ? (
-
-      <Flex wrap="wrap" justify="center" gap={4}>
-  {stories.map((story) => (
+  <Flex flexWrap={"wrap"} gap={4} justify={"center"}> 
+   {stories.map((story) => (
     <Box key={story.id} width={isSmallScreen ? "100%" : "320px"}>
       <Card.Root width="100%"  minHeight={"300px"} height={"320px"} boxShadow="2xl" borderRadius="3xl">
-      <Card.Body gap="0">
+      <Card.Body p={4} gap={2}>
                     <Avatar.Root size="lg" shape="rounded">
                       <Avatar.Image src={source} />
                       <Avatar.Fallback name="Story Avatar" />
@@ -119,6 +118,7 @@ function Stories() {
     </Box>
     ))}
     </Flex>
+
 
 //         <Grid templateColumns= {isSmallScreen ? 'repeat(1, 1fr)' : 'repeat(3, 1fr)'}  justifyItems={"center"} alignItems="start"  gap={isSmallScreen ? 4 : 0}  px={isSmallScreen ? 4 : 0} >
 //         {stories.map((story)=>(

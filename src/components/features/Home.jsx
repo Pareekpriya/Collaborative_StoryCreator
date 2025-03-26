@@ -40,6 +40,7 @@ function Home() {
         <Button
           bg={"blue.800"}
           fontWeight="bold"
+          color={"white"}
           textStyle="md"
           w={{ base: '80%', md: '60%' }}
           onClick={() => navigate('/stories')}
